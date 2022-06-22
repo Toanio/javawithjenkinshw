@@ -5,29 +5,31 @@ import org.junit.jupiter.api.Test;
 public class TextBoxTests {
     @BeforeAll
     static void setUp() {
-        Configuration.holdBrowserOpen = false;
+        Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = "4000x2000";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
+    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+
     @Test
     void studentRegistrationFormTest() {
-        RegistrationFormPage registrationFormPage = new RegistrationFormPage();
-        registrationFormPage.openPage();
-        registrationFormPage.setFirstName();
-        registrationFormPage.setLastName();
-        registrationFormPage.setEmail();
-        registrationFormPage.setGander();
-        registrationFormPage.setPhoneNumber();
-        registrationFormPage.upLoadPicture();
-        registrationFormPage.setCurrentAddress();
-        registrationFormPage.setDateOfBirth();
-        registrationFormPage.setSubject();
-        registrationFormPage.setHobbies();
-        registrationFormPage.setState();
-        registrationFormPage.setCity();
-        registrationFormPage.submitBtnClick();
-        registrationFormPage.checkTable();
+
+        registrationFormPage.openPage()
+                .setFirstName()
+                .setLastName()
+                .setEmail()
+                .setGander()
+                .setPhoneNumber()
+                .upLoadPicture()
+                .setCurrentAddress()
+                .setDateOfBirth()
+                .setSubject()
+                .setHobbies()
+                .setState()
+                .setCity()
+                .submitBtnClick()
+                .checkTable();
     }
 }
